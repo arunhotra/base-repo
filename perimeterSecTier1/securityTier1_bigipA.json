@@ -1,0 +1,7 @@
+{
+	"fqdn": "bigipA.example.com",
+	"mgmtIp": "",
+	"externalIp": "",
+	"internalIp": ""
+}
+

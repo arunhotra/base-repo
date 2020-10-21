@@ -1,0 +1,54 @@
+{
+	"bigipA": {
+		"fqdn": "dcibigipA.example.com",
+		"mgmtIp": "3.129.175.91",
+		"haPeer": {
+			"primary": true,
+			"peerName": "dcibigipB.example.com",
+			"haIp": "172.100.4.251"
+		},
+		"externalIp": {
+			"name": "externalIP",
+			"ip": "172.100.1.202",
+			"cidr": "/24",
+			"vlan": "external"
+		},
+		"externalFloatIp": {
+			"name": "externalFloatIP",
+			"ip": "172.100.1.4",
+			"cidr": "/24",
+			"vlan": "external"
+		},
+		"internalRedIp": {
+			"name": "internalRedIP",
+			"ip": "172.100.2.7",
+			"cidr": "/24",
+			"vlan": "internalRed"
+		},
+		"internalRedFloatIp": {
+			"name": "internalRedFloatIP",
+			"ip": "172.100.2.4",
+			"cidr": "/24",
+			"vlan": "internalRed"
+		},
+		"internalBlueIp": {
+			"name": "internalBlueIP",
+			"ip": "172.100.3.223",
+			"cidr": "/24",
+			"vlan": "internalBlue"
+		},
+		"internalBlueFloatIp": {
+			"name": "internalBlueFloatIP",
+			"ip": "172.100.3.4",
+			"cidr": "/24",
+			"vlan": "internalBlue"
+		},
+		"haIp": {
+			"name": "haIP",
+			"ip": "172.100.4.214",
+			"cidr": "/24",
+			"vlan": "ha"
+		},
+		"dataCenter": "virtualDataCenter"
+	}
+}
