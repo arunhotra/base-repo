@@ -1,5 +1,5 @@
 {
-	"bigipA": {
+	"base": {
 		"haPeer": {
 			"primary": true,
 			"peerName": "dcibigipB.example.com",
