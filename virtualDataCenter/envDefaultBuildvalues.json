@@ -135,7 +135,7 @@
       },
       "var15": {
         "name": "ui.advisory.text",
-        "value": "/Common/hostname"
+        "value": "Automated apps only, no manual changes"
       }
     },
     "sshd": {
