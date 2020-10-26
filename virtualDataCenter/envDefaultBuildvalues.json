@@ -1,4 +1,4 @@
-{ 
+{
   "commonEnvValues": {
     "environment": "dci",
     "as3rpm": "f5-appsvcs-3.20.0-3.noarch.rpm",
@@ -46,16 +46,16 @@
         "128.0.0.0/1"
       ],
       "communities": {
-          "community_1": {
-            "access": "ro",
-            "communityName": "community1",
-            "source": "all"
-          },
-          "community_2": {
-            "access": "rw",
-            "communityName": "community2",
-            "source": "all"
-          }
+        "community_1": {
+          "access": "ro",
+          "communityName": "community1",
+          "source": "all"
+        },
+        "community_2": {
+          "access": "rw",
+          "communityName": "community2",
+          "source": "all"
+        }
       },
       "sysContact": "NOC 877-555-5555",
       "sysLocation": " DataCenter3.0, Datacenter VE Guest",
@@ -124,6 +124,18 @@
       "var12": {
         "name": "dos.auto.threshold.learnalways",
         "value": "false"
+      },
+      "var13": {
+        "name": "ui.advisory.enabled",
+        "value": "true"
+      },
+      "var14": {
+        "name": "ui.advisory.color",
+        "value": "green"
+      },
+      "var15": {
+        "name": "ui.advisory.text",
+        "value": "/Common/hostname"
       }
     },
     "sshd": {
@@ -186,24 +198,24 @@
       ],
       "service": "ppp",
       "authRemoteRole": {
-          "RO": {
-            "name": "RO",
-            "attribute": "F5-LTM-User-Info-1=RO",
-            "console": "tmsh",
-            "lineOrder": "5",
-            "role": "auditor",
-            "userPartition": "all",
-            "remoteAccess": "true"
-          },
-          "RW": {
-            "name": "RW",
-            "attribute": "F5-LTM-User-Info-1=RW",
-            "console": "tmsh",
-            "lineOrder": "1",
-            "role": "admin",
-            "userPartition": "all",
-            "remoteAccess": "false"
-          }
+        "RO": {
+          "name": "RO",
+          "attribute": "F5-LTM-User-Info-1=RO",
+          "console": "tmsh",
+          "lineOrder": "5",
+          "role": "auditor",
+          "userPartition": "all",
+          "remoteAccess": "true"
+        },
+        "RW": {
+          "name": "RW",
+          "attribute": "F5-LTM-User-Info-1=RW",
+          "console": "tmsh",
+          "lineOrder": "1",
+          "role": "admin",
+          "userPartition": "all",
+          "remoteAccess": "false"
+        }
       },
       "authSource": "local"
     },
@@ -214,12 +226,12 @@
     },
     "consoleInactivity": "15",
     "softwareUpdate": {
-        "autoCheck": "disabled",
-        "autoPhoneHome": "disabled"
+      "autoCheck": "disabled",
+      "autoPhoneHome": "disabled"
     },
     "bigstartRemove": [
-        "named",
-        "zxfrd"
+      "named",
+      "zxfrd"
     ],
     "bgp": {
       "routeProtocol": "BGP",
@@ -235,57 +247,57 @@
         "VIP_networks": "10.253.0.0"
       },
       "imish": [
-          "imish",
-          "enable",
-          "conf t ",
-          "no service password-encryption",
-          "!",
-          "log file /var/log/zebos.log",
-          "no banner motd",
-          "!",
-          "bgp extended-asn-cap",
-          "!",
-          "router bgp 65005",
-          "bgp router-id 10.10.190.1",
-          "bgp graceful-restart restart-time 120",
-          "redistribute kernel route-map RM_HealthInject_PREFIX_LIST",
-          "timers bgp 15 45",
-          "neighbor PeerGroup_Fabric_IN peer-group",
-          "neighbor PeerGroup_Fabric_IN soft-reconfiguration inbound",
-          "neighbor PeerGroup_Fabric_IN route-map RouteMap_to_INSIDE out",
-          "neighbor PeerGroup_Fabric_IN remote-as 65010",
-          "neighbor PeerGroup_Fabric_OUT peer-group",
-          "neighbor PeerGroup_Fabric_OUT soft-reconfiguration inbound",
-          "neighbor PeerGroup_Fabric_OUT route-map  RouteMap_to_OUTSIDE out",
-          "neighbor PeerGroup_Fabric_OUT remote-as 65001",
-          "neighbor 10.10.110.1 peer-group PeerGroup_Fabric_OUT",
-          "neighbor 10.10.110.1 description outside_peering",
-          "neighbor 10.10.110.2 peer-group PeerGroup_Fabric_OUT",
-          "neighbor 10.10.110.2 description outside_peering",
-          "neighbor 10.10.110.101 peer-group PeerGroup_Fabric_IN",
-          "neighbor 10.10.110.101 description inside_peering",
-          "neighbor 10.10.110.102 peer-group PeerGroup_Fabric_IN",
-          "neighbor 10.10.110.102 description inside_peering",
-          "!",
-          "ip as-path access-list AccessList_to-INSIDE permit ^65001 *",
-          "ip as-path access-list AccessList_to-OUTSIDE permit ^$",
-          "ip as-path access-list AccessList_to-OUTSIDE permit ^65264$",
-          "!",
-          "ip prefix-list PrefixL_VIP_NETWORKS seq 10 permit 10.10.100.0/25 ge 32",
-          "!",
-          "route-map RouteMap_to_OUTSIDE permit 10",
-          " match as-path AccessList_to-OUTSIDE",
-          "!",
-          "route-map RouteMap_to_INSIDE permit 10",
-          " match as-path AccessList_to-INSIDE",
-          "!",
-          "route-map RM_HealthInject_PREFIX_LIST permit 50",
-          " match ip address prefix-list PrefixL_VIP_NETWORKS",
-          "!",
-          "exit",
-          "exit",
-          "wr mem",
-          "exit"
+        "imish",
+        "enable",
+        "conf t ",
+        "no service password-encryption",
+        "!",
+        "log file /var/log/zebos.log",
+        "no banner motd",
+        "!",
+        "bgp extended-asn-cap",
+        "!",
+        "router bgp 65005",
+        "bgp router-id 10.10.190.1",
+        "bgp graceful-restart restart-time 120",
+        "redistribute kernel route-map RM_HealthInject_PREFIX_LIST",
+        "timers bgp 15 45",
+        "neighbor PeerGroup_Fabric_IN peer-group",
+        "neighbor PeerGroup_Fabric_IN soft-reconfiguration inbound",
+        "neighbor PeerGroup_Fabric_IN route-map RouteMap_to_INSIDE out",
+        "neighbor PeerGroup_Fabric_IN remote-as 65010",
+        "neighbor PeerGroup_Fabric_OUT peer-group",
+        "neighbor PeerGroup_Fabric_OUT soft-reconfiguration inbound",
+        "neighbor PeerGroup_Fabric_OUT route-map  RouteMap_to_OUTSIDE out",
+        "neighbor PeerGroup_Fabric_OUT remote-as 65001",
+        "neighbor 10.10.110.1 peer-group PeerGroup_Fabric_OUT",
+        "neighbor 10.10.110.1 description outside_peering",
+        "neighbor 10.10.110.2 peer-group PeerGroup_Fabric_OUT",
+        "neighbor 10.10.110.2 description outside_peering",
+        "neighbor 10.10.110.101 peer-group PeerGroup_Fabric_IN",
+        "neighbor 10.10.110.101 description inside_peering",
+        "neighbor 10.10.110.102 peer-group PeerGroup_Fabric_IN",
+        "neighbor 10.10.110.102 description inside_peering",
+        "!",
+        "ip as-path access-list AccessList_to-INSIDE permit ^65001 *",
+        "ip as-path access-list AccessList_to-OUTSIDE permit ^$",
+        "ip as-path access-list AccessList_to-OUTSIDE permit ^65264$",
+        "!",
+        "ip prefix-list PrefixL_VIP_NETWORKS seq 10 permit 10.10.100.0/25 ge 32",
+        "!",
+        "route-map RouteMap_to_OUTSIDE permit 10",
+        " match as-path AccessList_to-OUTSIDE",
+        "!",
+        "route-map RouteMap_to_INSIDE permit 10",
+        " match as-path AccessList_to-INSIDE",
+        "!",
+        "route-map RM_HealthInject_PREFIX_LIST permit 50",
+        " match ip address prefix-list PrefixL_VIP_NETWORKS",
+        "!",
+        "exit",
+        "exit",
+        "wr mem",
+        "exit"
       ]
     }
   }
