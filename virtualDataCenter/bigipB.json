@@ -1,7 +1,5 @@
 {
 	"base": {
-		"fqdn": "dcibigipB.example.com",
-		"mgmtIp": "3.138.96.17",
 		"haPeer": {
 			"primary": false,
 			"peerName": "dcibigipA.example.com",
