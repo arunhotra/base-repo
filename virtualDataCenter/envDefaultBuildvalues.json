@@ -131,7 +131,7 @@
       },
       "var14": {
         "name": "ui.advisory.color",
-        "value": "green"
+        "value": "red"
       },
       "var15": {
         "name": "ui.advisory.text",
